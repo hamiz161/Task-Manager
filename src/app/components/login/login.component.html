@@ -1,0 +1,25 @@
+
+<div class="row" >
+
+  <div class="mx-auto  col-lg-3">
+
+    <form [formGroup]="loginFrom" (ngSubmit)="login(loginFrom)"  >
+
+
+
+    <div *ngFor="let item of items " class="form-group"  >
+        <label for="{{item.name}}">{{item.data}}</label>
+        <input type="{{item.type}}" class="form-control {{item.name}}" id="{{item.name}}" placeholder="{{item.data}}" name="{{item.data}}" formControlName="{{item.name}}" autocomplete="off">
+      </div>
+      <div>
+        <span *ngIf="messageErrorSpan">The username or password you have entered is invalid</span>
+      </div>
+
+
+      <button type="submit" [disabled]="!loginFrom.valid"  class="btn btn-outline-success mt-4">
+        Login
+      </button>
+    </form>
+    <!-- Form end -->
+  </div>
+</div>
